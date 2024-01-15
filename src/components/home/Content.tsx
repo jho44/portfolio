@@ -7,6 +7,10 @@ const tools = [
     list: ["React.js", "Vue.js", "Tailwind CSS"],
   },
   {
+    type: "Backend",
+    list: ["Express", "Flask", "FastAPI"],
+  },
+  {
     type: "Web Dev",
     list: ["Next.js", "SvelteKit"],
   },
