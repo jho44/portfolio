@@ -2,7 +2,7 @@ import styles from "@/styles/home.module.css";
 
 export default function Hero() {
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
+    <div className="h-screen w-full flex justify-center items-center">
       <div
         className={`${styles.enter} w-full h-full max-h-[540px] max-w-[960px] bg-gradient-to-br from-light-400 to-light-800 rounded-2xl p-4 flex flex-col gap-4 items-center justify-center text-center m-4`}
       >

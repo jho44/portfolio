@@ -63,7 +63,7 @@ type Experience = {
 const jobs = [
   {
     title: "Prezo, Full Stack Engineer",
-    dates: "FEB 2023 - PRESENT",
+    dates: "FEB 2023 - JAN 2024",
     tasks: [
       "Revamped marketing site with a sneak peek of the generation flow to incentivize new user sign up",
       "Facilitated the launch of presentations as websites with personalizable subdomains and suffixes",
@@ -180,50 +180,67 @@ const research = [
   },
 ];
 
-// const projects = [
-//   {
-//     title: "COVID Prediction",
-//     dates: "SEPT 2020 - DEC 2020",
-//     tasks: [
-//       "Co-led group of 4 to clean and feature engineer 20k+ data points on COVID statistics and graph data from hospitals across the US",
-//       "Produced regression models which beat baseline by 32%",
-//     ],
-//     links: [
-//       {
-//         label: "Kaggle Competition",
-//         href: "https://www.kaggle.com/competitions/ucla2020-cs145-covid19-prediction/overview",
-//       },
-//     ],
-//   },
-//   {
-//     title: "Cookies.co Sales Projection",
-//     dates: "SEPT 2021 - DEC 2021",
-//     tasks: [
-//       "Developed data pipeline on company sales data to project future sales and determine strongest factors with high confidence",
-//     ],
-//   },
-//   {
-//     title: "Neural Data Compression",
-//     dates: "SEPT 2022 - DEC 2022",
-//     tasks: [
-//       "With a group of 3, trained 3 families of neural network models to compress weather data by at least 50% while retaining similar accuracy in downstream tasks as using uncompressed dataset",
-//     ],
-//   },
-//   {
-//     title: "Pseudo-alignment",
-//     dates: "JAN 2022 - MAR 2022",
-//     tasks: [
-//       "Wrote code to pseudo-align +1.2M RNA-Sequence reads to transcriptome of +7K transcripts to get genomic loci that read came from",
-//     ],
-//   },
-//   {
-//     title: "TIL Mapping with GNNs",
-//     dates: "APR 2022 - JUN 2022",
-//     tasks: [
-//       "Map TILs (Tumor-Infiltrating Lymphocytes) with GNNs (Graph Neural Networks)",
-//     ],
-//   },
-// ];
+const projects = [
+  {
+    title: "Housing Finder",
+    dates: "NOV 2023 - NOV 2023",
+    tasks: [
+      "Facebook Housing Groups remains a longstanding avenue for connecting roomies and lessee to leasors. However, FB Groups aren't tailored for housing searches. Sifting through 100+ posts on any day can be overwhelming and frustrating, especially when only some are relevant to your needs. FB Groups lack essential search and filtering features, such as keyword searches and price range filters, making the housing hunt unnecessarily cumbersome. Enter HousingFinder — an innovative solution providing the tools you need to streamline your search within the Facebook community.",
+    ],
+    links: [
+      {
+        label: "Try it out!",
+        href: "https://housing-finder.vercel.app",
+      },
+      {
+        label: "Repo",
+        href: "https://github.com/jho44/HousingFinder",
+      },
+    ],
+  },
+  // {
+  //   title: "COVID Prediction",
+  //   dates: "SEPT 2020 - DEC 2020",
+  //   tasks: [
+  //     "Co-led group of 4 to clean and feature engineer 20k+ data points on COVID statistics and graph data from hospitals across the US",
+  //     "Produced regression models which beat baseline by 32%",
+  //   ],
+  //   links: [
+  //     {
+  //       label: "Kaggle Competition",
+  //       href: "https://www.kaggle.com/competitions/ucla2020-cs145-covid19-prediction/overview",
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: "Cookies.co Sales Projection",
+  //   dates: "SEPT 2021 - DEC 2021",
+  //   tasks: [
+  //     "Developed data pipeline on company sales data to project future sales and determine strongest factors with high confidence",
+  //   ],
+  // },
+  // {
+  //   title: "Neural Data Compression",
+  //   dates: "SEPT 2022 - DEC 2022",
+  //   tasks: [
+  //     "With a group of 3, trained 3 families of neural network models to compress weather data by at least 50% while retaining similar accuracy in downstream tasks as using uncompressed dataset",
+  //   ],
+  // },
+  // {
+  //   title: "Pseudo-alignment",
+  //   dates: "JAN 2022 - MAR 2022",
+  //   tasks: [
+  //     "Wrote code to pseudo-align +1.2M RNA-Sequence reads to transcriptome of +7K transcripts to get genomic loci that read came from",
+  //   ],
+  // },
+  // {
+  //   title: "TIL Mapping with GNNs",
+  //   dates: "APR 2022 - JUN 2022",
+  //   tasks: [
+  //     "Map TILs (Tumor-Infiltrating Lymphocytes) with GNNs (Graph Neural Networks)",
+  //   ],
+  // },
+];
 
 const Experiences = ({ which }: { which: Experience }) =>
   which.map(({ title, dates, tasks, links }) => {
@@ -249,10 +266,7 @@ const Experiences = ({ which }: { which: Experience }) =>
           <div className="flex gap-1 justify-center">
             {links.map(({ label, href }, i) => (
               <Fragment key={label}>
-                <a
-                  className="opacity-80 underline decoration-solid"
-                  href={href}
-                >
+                <a className="opacity-80" href={href}>
                   {label}
                 </a>
                 {i !== lastLinkInd && <span className="opacity-60">•</span>}
@@ -266,6 +280,7 @@ const Experiences = ({ which }: { which: Experience }) =>
 
 const Jobs = () => <Experiences which={jobs} />;
 const Research = () => <Experiences which={research} />;
+const Projects = () => <Experiences which={projects} />;
 
 export default function Content() {
   return (
@@ -286,6 +301,12 @@ export default function Content() {
         <h3>Research at UCLA</h3>
         <div className="flex flex-col gap-4 justify-center">
           <Research />
+        </div>
+      </div>
+      <div className="w-full max-w-[960px] flex flex-col items-center gap-4 px-4">
+        <h3>Projects</h3>
+        <div className="flex flex-col gap-4 justify-center">
+          <Projects />
         </div>
       </div>
     </div>
