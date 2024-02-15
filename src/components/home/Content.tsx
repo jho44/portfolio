@@ -284,7 +284,7 @@ const Projects = () => <Experiences which={projects} />;
 
 export default function Content() {
   return (
-    <div className="flex flex-col justify-center items-center gap-[10vh] mb-[10%]">
+    <div className="flex flex-col justify-center items-center gap-[10vh] pb-[10%]">
       <div className="w-full max-w-[960px] flex flex-col items-center gap-4">
         <h3>Tools</h3>
         <div className="flex flex-wrap justify-center">
