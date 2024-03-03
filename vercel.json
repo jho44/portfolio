@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "api/index.py": {
+      "memory": 3009,
+      "maxDuration": 10,
+      "includeFiles": "captcha/*.py"
+    }
+  }
+}
