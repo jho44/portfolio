@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Card from "./Card";
-import Video from "./Video";
 import Links from "./Links";
+import Video from "./Video";
 import type { Link } from "./types";
 
 type Project = {
@@ -10,7 +10,7 @@ type Project = {
   description: string;
   techStack: { purpose: string; name: string }[];
   links: Link[];
-  demoVidLinks: string[];
+  demoVidLinks: { fileName: string; posterPath?: string }[];
 };
 
 const projects: Project[] = [
@@ -38,7 +38,10 @@ const projects: Project[] = [
       },
     ],
     demoVidLinks: [
-      "https://drive.google.com/file/d/1ciR_m0JNe1l4bNcs24zXePKQZzDbWTry/preview",
+      {
+        fileName: "housing-finder.mp4",
+        posterPath: "/imgs/housing-finder.webp",
+      },
     ],
     links: [
       {
@@ -71,7 +74,10 @@ const projects: Project[] = [
       },
     ],
     demoVidLinks: [
-      "https://drive.google.com/file/d/1wmGMPbiEk1Kw0veuzVIaIMsCOnAqEA3V/preview",
+      {
+        fileName: "captcha-solver.mp4",
+        posterPath: "/imgs/captcha-solver.webp",
+      },
     ],
     links: [],
   },
@@ -125,14 +131,14 @@ const Projects = () =>
       const lastTechInd = techStack.length - 1;
       return (
         <Card key={title} style={{ width: "100%" }}>
-          <div className="flex flex-col gap-6 text-center">
+          <div className="pt-1 sm:pt-2 flex flex-col gap-6 text-center">
             <div className="flex flex-col gap-2">
               <h4>{title}</h4>
               <p className="opacity-80">{dates}</p>
             </div>
             <div className="flex flex-col gap-4 sm:gap-0 sm:flex-row items-center justify-between">
-              <p className="sm:w-2/3">{description}</p>
-              <ul className="flex flex-col gap-2 sm:w-1/4 mx-auto">
+              <p className="sm:w-7/12">{description}</p>
+              <ul className="flex flex-col gap-2 sm:w-1/3 mx-auto">
                 {techStack.map((tech, i) => (
                   <Fragment key={i}>
                     <li>
@@ -145,8 +151,12 @@ const Projects = () =>
                 ))}
               </ul>
             </div>
-            {demoVidLinks.map((src) => (
-              <Video src={src} key={src} />
+            {demoVidLinks.map(({ fileName, posterPath }) => (
+              <Video
+                fileName={fileName}
+                posterPath={posterPath}
+                key={fileName}
+              />
             ))}
             <Links links={links} />
           </div>
