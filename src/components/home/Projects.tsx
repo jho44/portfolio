@@ -52,6 +52,10 @@ const projects: Project[] = [
         label: "Repo",
         href: "https://github.com/jho44/HousingFinder",
       },
+      {
+        label: "Demo vid",
+        href: "https://drive.google.com/file/d/1Nr42l96ZAyJr1zeiK-nXApLQSMf5jhvH/view",
+      },
     ],
   },
   {
@@ -79,7 +83,12 @@ const projects: Project[] = [
         posterPath: "/imgs/captcha-solver.webp",
       },
     ],
-    links: [],
+    links: [
+      {
+        label: "Demo vid",
+        href: "https://drive.google.com/file/d/10EJUAB8mzbBLjFWCB6xnO06gbH7cscVv/view",
+      },
+    ],
   },
   // {
   //   title: "COVID Prediction",
@@ -151,13 +160,13 @@ const Projects = () =>
                 ))}
               </ul>
             </div>
-            {demoVidLinks.map(({ fileName, posterPath }) => (
+            {/* {demoVidLinks.map(({ fileName, posterPath }) => (
               <Video
                 fileName={fileName}
                 posterPath={posterPath}
                 key={fileName}
               />
-            ))}
+            ))} */}
             <Links links={links} />
           </div>
         </Card>
