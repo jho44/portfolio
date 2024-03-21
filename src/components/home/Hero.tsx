@@ -30,11 +30,11 @@ export default function Hero() {
           </div>
 
           <div className="flex gap-1">
-            <a className="opacity-50" href="https://www.linkedin.com/in/jho44/">
+            <a target="_blank" className="opacity-50" href="https://www.linkedin.com/in/jho44/">
               LinkedIn
             </a>
             <span className="opacity-60">•</span>
-            <a className="opacity-50" href="https://github.com/jho44">
+            <a target="_blank" className="opacity-50" href="https://github.com/jho44">
               GitHub
             </a>
           </div>

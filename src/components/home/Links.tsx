@@ -7,7 +7,7 @@ const Links = ({ links }: { links: Link[] }) => {
     <div className="flex gap-1 justify-center">
       {links.map(({ label, href }, i) => (
         <Fragment key={label}>
-          <a className="opacity-80" href={href}>
+          <a target="_blank" className="opacity-80" href={href}>
             {label}
           </a>
           {i !== lastLinkInd && <span className="opacity-60">•</span>}
