@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, ReactNode } from "react";
 import Card from "./Card";
 import Links from "./Links";
 import Video from "./Video";
@@ -7,13 +7,90 @@ import type { Link } from "./types";
 type Project = {
   title: string;
   dates: string;
-  description: string;
-  techStack: { purpose: string; name: string }[];
+  description: string | ReactNode;
+  techStack: { purpose: string; name: string | ReactNode }[];
   links: Link[];
-  demoVidLinks: { fileName: string; posterPath?: string }[];
+  demoVidLinks?: { fileName: string; posterPath?: string }[];
 };
 
 const projects: Project[] = [
+  {
+    title: "ZeroDayComics",
+    dates: "MAR 2024 - PRESENT",
+    description:
+      "Web app which shortens the cleaning-translation-typesetting process to mere minutes. For inputs, currently supports scraping from Pixiv's free web serials as well as uploaded image files.",
+    techStack: [
+      {
+        purpose: "Backend",
+        name: "AIOHTTP (Python)",
+      },
+      {
+        purpose: "Translation",
+        name: "GPT, DeepL, Llama 3",
+      },
+      {
+        purpose: "OCR",
+        name: (
+          <a href="https://github.com/kha-white/manga-ocr" target="_blank">
+            manga-ocr
+          </a>
+        ),
+      },
+      {
+        purpose: "Text Detector",
+        name: (
+          <a
+            href="https://github.com/dmMaze/comic-text-detector"
+            target="_blank"
+          >
+            comic-text-detector
+          </a>
+        ),
+      },
+    ],
+    links: [
+      {
+        label: "Repo",
+        href: "https://github.com/jho44/ZeroDayComics",
+      },
+      {
+        label: "Latest demo vid",
+        href: "https://drive.google.com/file/d/1B9BI-bFbToTr7C9MZx5yQEcYrGl846_W/view?usp=sharing",
+      },
+    ],
+  },
+  {
+    title: "CAPTCHA Solver",
+    dates: "FEB 2024 - MAR 2024",
+    description:
+      "A browser extension CAPTCHA solver for text CAPTCHAs in Global Interpark; easily extensible to other ticket platforms",
+    techStack: [
+      {
+        purpose: "ML",
+        name: "HuggingFace",
+      },
+      {
+        purpose: "Browser Extension Dev",
+        name: "Plasmo",
+      },
+      {
+        purpose: "Programming",
+        name: "JS / TS",
+      },
+    ],
+    demoVidLinks: [
+      {
+        fileName: "captcha-solver.mp4",
+        posterPath: "/imgs/captcha-solver.webp",
+      },
+    ],
+    links: [
+      {
+        label: "Demo vid",
+        href: "https://drive.google.com/file/d/10EJUAB8mzbBLjFWCB6xnO06gbH7cscVv/view",
+      },
+    ],
+  },
   {
     title: "Housing Finder",
     dates: "NOV 2023 - NOV 2023",
@@ -59,34 +136,80 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "CAPTCHA Solver",
-    dates: "FEB 2024 - MAR 2024",
+    title: "NB-IoT Analyzer",
+    dates: "SEPT 2022 - DEC 2022",
     description:
-      "A browser extension CAPTCHA solver for text CAPTCHAs in Global Interpark; easily extensible to other ticket platforms",
+      "Comprehensive tool for visualizing traffic patterns of Qualcomm mobile devices communicating with NB-IoT (Narrowband Internet of Things)",
     techStack: [
       {
-        purpose: "ML",
-        name: "HuggingFace",
+        purpose: "Backend",
+        name: "Flask",
       },
       {
-        purpose: "Browser Extension Dev",
-        name: "Plasmo",
+        purpose: "Frontend",
+        name: "React",
       },
       {
-        purpose: "Programming",
-        name: "JS / TS",
-      },
-    ],
-    demoVidLinks: [
-      {
-        fileName: "captcha-solver.mp4",
-        posterPath: "/imgs/captcha-solver.webp",
+        purpose: "QMDL Parsing",
+        name: "MobileInsight",
       },
     ],
     links: [
       {
+        label: "Presentation",
+        href: "https://docs.google.com/presentation/d/1jJqNw46n_Z8459AslFjxVv4Aer-Q3_EEeSTabSaiN10/edit?usp=sharing",
+      },
+      {
+        label: "Repo",
+        href: "https://github.com/jho44/nbiot-dashboard",
+      },
+      {
         label: "Demo vid",
-        href: "https://drive.google.com/file/d/10EJUAB8mzbBLjFWCB6xnO06gbH7cscVv/view",
+        href: "https://drive.google.com/file/d/1flaRW0bG2b6bh5wQDJSInO-edmYDlo_7/view?usp=sharing",
+      },
+    ],
+  },
+  {
+    title: "LambDa",
+    dates: "JAN 2022 - MAR 2022",
+    description: (
+      <span>
+        Prototype mobile render farm as an alternative to{" "}
+        <a href="https://www.sheepit-renderfarm.com/" target="_blank">
+          SheepIt
+        </a>
+      </span>
+    ),
+    techStack: [
+      {
+        purpose: "Supplier of Render Jobs",
+        name: "Blender",
+      },
+      {
+        purpose: "Communication",
+        name: "TCP Sockets + Threads",
+      },
+      {
+        purpose: "Power Server/Clients/Workers",
+        name: "Python",
+      },
+      {
+        purpose: "Workers",
+        name: "Android + Ubuntu Linux",
+      },
+    ],
+    links: [
+      {
+        label: "Presentation",
+        href: "https://docs.google.com/presentation/d/1YyBRRLg5VBqnqSq4AR5kT44-dVMsG4ASymExekV4VA4/edit?usp=sharing",
+      },
+      {
+        label: "Repo",
+        href: "https://github.com/luckiday/LambDa",
+      },
+      {
+        label: "Demo vid",
+        href: "https://drive.google.com/file/d/1lHFd3mc4Pf_W9VaMGQgNp3tMdBsOY6Fg/view?usp=sharing",
       },
     ],
   },
